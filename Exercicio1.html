@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador Par ou Ímpar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Verificar a média de 3 notas</h1>
+  <input type="number1" id="numero1" placeholder="Digite a primeira nota" />
+  <input type="number2" id="numero2" placeholder="Digite a segunda nota" />
+  <input type="number3" id="numero3" placeholder="Digite a terceira nota" />
+  <button onclick="verificar()">Verificar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function verificar() {
+      const num1 = parseFloat(document.getElementById("numero1").value);
+      const num2 = parseFloat(document.getElementById("numero2").value);
+      const num3 = parseFloat(document.getElementById("numero3").value);
+      const resultado = document.getElementById("resultado");
+      const media = (num1 + num2 + num3) / 3;
+
+      if (isNaN(num1 || num2 || num3)) {
+        resultado.textContent = "Por favor, digite uma nota válida.";
+        return;
+      }
+
+      if (media >= 6) {
+        resultado.textContent = `A média é ${media}: APROVADO!`;
+      } else {
+        resultado.textContent = `A média é ${media}: REPROVADO!`;
+    }
+    }
+  </script>
+
+</body>
+</html>
